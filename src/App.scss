@@ -1,0 +1,99 @@
+.content-wrapper {
+  background-color: #091a29;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 90px;
+  #home-section {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    position: relative;
+    height: 700px;
+    .left {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 20px 50px;
+      color: #ffffff;
+      flex: 1.5;
+      .intro-text {
+        font-size: 50px;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 30%;
+          height: 10px;
+          width: 70%;
+          border: solid 2px #cb1829;
+          border-color: #cb1829 transparent transparent transparent;
+          border-radius: 60%;
+          clip-path: inset(0 0 50% 0);
+        }
+      }
+      .specialities {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 20px;
+        max-width: 45%;
+        .speciality {
+          position: relative;
+          font-size: 16px;
+          color: rgb(24, 58, 87);
+          &::before {
+            position: absolute;
+            content: " ";
+            border: 1px solid #f6683c;
+            bottom: -10px;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .right {
+      flex: 2;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: -70px;
+      text-emphasis: center;
+      border: 1px solid #183a58;
+      width: 80%;
+      transform: translate(-50%, -50%);
+      left: 50%;
+    }
+  }
+  #about-section {
+    .title {
+      padding: 10px 50px;
+      color: #ffffff;
+      font-size: 50px;
+      text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+    .content {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 80px;
+      .text {
+        color: #ffffff;
+        padding: 10px 50px;
+        font-size: 20px;
+        font-stretch: 75%;
+      }
+      img {
+      }
+    }
+  }
+}
