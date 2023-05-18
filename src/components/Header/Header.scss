@@ -1,9 +1,13 @@
 .header {
+  // position: fixed;
   display: flex;
+  // padding: 20px 50px;
   flex-flow: row nowrap;
   align-items: center;
   gap: 68px;
 
+  //   background-color: orange;
+  // z-index: ;
   font-size: 15px;
   white-space: nowrap;
 

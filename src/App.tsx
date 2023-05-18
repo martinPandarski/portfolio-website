@@ -1,8 +1,39 @@
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+
 import "./App.scss";
 import Header from "./components/Header/Header";
+import SectionTitle from "./components/SectionTitle/SectionTitle";
+
 import image1 from "./assets/crystal_one.png";
 import image2 from "./assets/crystal_two.png";
-import { useEffect, useRef, useState } from "react";
+import jsIcon from "./assets/js.gif";
+import tsIcon from "./assets/ts.svg";
+import reactIcon from "./assets/react.gif";
+
+const sentence = {
+  hidden: {
+    opacity: 1,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const letter = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+const line1 = "My name is Martin,";
+const line2 = "I am a Frontend Developer";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home-section");
@@ -15,7 +46,7 @@ function App() {
       ) as HTMLElement[];
       const currentSection = sectionElements.find((section) => {
         const { top, bottom } = section.getBoundingClientRect();
-        return top <= 0 && bottom > 0;
+        return top <= 50 && bottom > 0;
       });
       if (currentSection) {
         setActiveSection(currentSection.id);
@@ -34,7 +65,24 @@ function App() {
         <div className="left">
           <Header activeSection={activeSection} />
           <div className="intro-text">
-            My name is Martin, <br />I am a Frontend Developer
+            <motion.div variants={sentence} initial="hidden" animate="visible">
+              {line1.split("").map((character, index) => (
+                <motion.span key={index} variants={letter}>
+                  {character}
+                </motion.span>
+              ))}
+              <br />
+              {line2.split("").map((character, index) => (
+                <motion.span
+                  key={index}
+                  variants={letter}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  {character}
+                </motion.span>
+              ))}
+            </motion.div>
           </div>
           <div className="specialities">
             <div className="speciality">Web frontend development</div>
@@ -46,7 +94,7 @@ function App() {
         </div>
       </div>
       <div id="about-section">
-        <div className="title">About Me</div>
+        <SectionTitle title="About" />
         <div className="content">
           <div className="text">
             Hi there! My name is Shallom, and I am a highly creative and driven
@@ -83,6 +131,16 @@ function App() {
           </div>
           <img src={image2} />
         </div>
+      </div>
+      <div id="stack-section">
+        <SectionTitle title="Tech stack" />
+        {/* <div className="stack-wrapper">
+          <div className="stack-container">
+            <img src={jsIcon} />
+            <img src={tsIcon} />
+            <img src={reactIcon} />
+          </div>
+        </div> */}
       </div>
     </div>
   );

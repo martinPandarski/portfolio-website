@@ -2,7 +2,6 @@ import "./Header.scss";
 
 const Header = ({ activeSection }: { activeSection: string }) => {
   const handleButtonClick = (id: string) => {
-    // setActiveSection(id);
     const sectionElement = document.getElementById(id);
     sectionElement?.scrollIntoView({
       behavior: "smooth",
