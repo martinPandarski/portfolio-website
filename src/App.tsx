@@ -7,9 +7,9 @@ import SectionTitle from "./components/SectionTitle/SectionTitle";
 
 import image1 from "./assets/crystal_one.png";
 import image2 from "./assets/crystal_two.png";
-import jsIcon from "./assets/js.gif";
-import tsIcon from "./assets/ts.svg";
-import reactIcon from "./assets/react.gif";
+// import jsIcon from "./assets/js.gif";
+// import tsIcon from "./assets/ts.svg";
+// import reactIcon from "./assets/react.gif";
 
 const sentence = {
   hidden: {
